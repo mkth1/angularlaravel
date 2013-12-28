@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app>
   <head>
     <title>Contacts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,13 +32,35 @@
 	        </nav> 
 	    </div> <!-- navigation end row -->
 
-	<!-- row 2: header 
+	<!-- row 2: header -->
     <header class="row">
-    	<div class="jumbotron">Contacts</div>
-    </header> -->
+    	<div class="col col-sm-12">
+        	<img src="/img/animals.jpg" alt="" id="logo" class="img-responsive center-block">
+        </div>
+    </header> 
     
     <!-- main content -->
-    <div class="row">
+    <div class="row" ng-controller="FormController">
+		<form novalidate id="contact-form" class="form-inline" role="form">
+			<div class="form-group">
+				<input type="text" ng-model="contact.first_name" class="form-control" placeholder="First name" required>
+			</div>
+
+			<div class="form-group">
+				<input type="text" ng-model="contact.last_name" class="form-control" placeholder="Last name" required>
+			</div>
+			<div class="form-group">
+				<input type="number" ng-model="contact.phone_number" class="form-control" placeholder="Phone number" required>
+			</div>
+			<div class="form-group">
+				<input type="email" ng-model="contact.email_address" class="form-control" placeholder="Email address" required>
+			</div>
+			<div class="form-group">
+				<input type="text" ng-model="contact.description" class="form-control" placeholder="Description" >
+			</div>
+			<button ng-click="save(contact)" class="btn btn-success">SAVE</button>
+			<button ng-click="reset()" class="btn btn-warning">RESET</button>
+		</form>
     </div>
 	</section> <!-- container -->
     
@@ -47,5 +69,6 @@
     <script src="js/vendors/angular.js" type="text/javascript"></script>
     <script src="js/vendors/angular-route.js" type="text/javascript"></script>
     <script src="js/vendors/angular-resource.js" type="text/javascript"></script>
+    <script src="js/controller/form.js" type="text/javascript"></script>
   </body>
 </html>
