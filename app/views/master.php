@@ -20,14 +20,13 @@
 	                    <span class="icon-bar"></span>
 	                    <span class="icon-bar"></span>
 	                </button>
-	                <a href="" class="navbar-brand">My Website</a>
+	                <a href="" class="navbar-brand">Contacts</a>
 	            </div> 
 	            <div class="collapse navbar-collapse" id="collapse">
 	                <ul class="nav navbar-nav">
 	                    <li><a href="#">Home</a></li>
 	                    <li><a href="#">About</a></li>
-	                    <li><a href="#">Photo Gallery</a></li>
-	                    <li><a href="#">Contact</a></li>  
+	                    <li><a href="#"></a></li>
 	                </ul>
 	            </div>
 	        </nav> 
