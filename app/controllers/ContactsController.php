@@ -8,8 +8,11 @@ class ContactsController extends BaseController {
 	 * @return Response
 	 */
 	public function index()
-	{
-        return View::make('contacts.index');
+	{	
+		$contacts = Contact::all();
+		//return View::make('master')->with('contacts',$contacts);
+        //return View::make('contacts.index');
+        return $contacts;
 	}
 
 	/**

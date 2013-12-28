@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="contact">
   <head>
     <title>Contacts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,8 @@
     <link href="css/main.css" rel="stylesheet">
   </head>
   <body id="home">
-    <section class="container">
+    <section class="container" ng-controller="AppController">
+
 		<!-- row 1: navigation -->
 	    <div class="row">
 	        <!-- the role navigation section is the navbar ,navbar-fixed-top is for full width , navbar-inverse is for color black or inverse color and icon-bar is the icons which comes on the button when u reduce the page size!-->
@@ -20,26 +21,29 @@
 	                    <span class="icon-bar"></span>
 	                    <span class="icon-bar"></span>
 	                </button>
-	                <a href="" class="navbar-brand">Contacts</a>
+	                <a href="/" class="navbar-brand">Contacts</a>
 	            </div> 
 	            <div class="collapse navbar-collapse" id="collapse">
 	                <ul class="nav navbar-nav">
-	                    <li><a href="#">Home</a></li>
-	                    <li><a href="#">About</a></li>
-	                    <li><a href="#"></a></li>
+	                    <li ng-class="home"><a href="#">Home</a></li>
+	                    <li ng-class="about"><a href="#">About</a></li>
 	                </ul>
 	            </div>
 	        </nav> 
-	    </div> <!-- navigation end row -->
+	    </div> <!-- navigation -->
 
-	<!-- row 2: header -->
+	
     <header class="row">
     	<div class="col col-sm-12">
         	<img src="/img/animals.jpg" alt="" id="logo" class="img-responsive center-block">
         </div>
-    </header> 
+    </header> <!-- header -->
     
-    <!-- main content -->
+    <div id="main">
+		<div ng-view></div>
+	</div>
+	
+	<!--
     <div class="row" ng-controller="FormController">
 		<form novalidate id="contact-form" class="form-inline" role="form">
 			<div class="form-group">
@@ -61,7 +65,8 @@
 			<button ng-click="save(contact)" class="btn btn-success">SAVE</button>
 			<button ng-click="reset()" class="btn btn-warning">RESET</button>
 		</form>
-    </div>
+    </div> <!-- form -->
+	
 	</section> <!-- container -->
     
     <script src="js/vendors/jquery.js" type="text/javascript"></script>
@@ -69,6 +74,12 @@
     <script src="js/vendors/angular.js" type="text/javascript"></script>
     <script src="js/vendors/angular-route.js" type="text/javascript"></script>
     <script src="js/vendors/angular-resource.js" type="text/javascript"></script>
-    <script src="js/controller/form.js" type="text/javascript"></script>
+	
+	<script src="js/controllers/form.js" type="text/javascript"></script>
+	<script src="js/controllers/home.js" type="text/javascript"></script>
+	<script src="js/controllers/app.js" type="text/javascript"></script>
+	<script src="js/services.js" type="text/javascript"></script>
+	<script src="js/route.js" type="text/javascript"></script>
+    
   </body>
 </html>
