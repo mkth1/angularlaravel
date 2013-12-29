@@ -1,4 +1,5 @@
 angular.module('contactServices', ['ngResource'])
 	.factory('Contacts', function  ($resource) {
-		return $resource('/contacts');
+		return $resource('/contacts/:id');
+		
 	});

@@ -3,9 +3,9 @@ body{
 }
 
 #contact-form input.ng-invalid.ng-dirty {
-	background-color: #d9534f;
+	background-color: #F08C89;
 }
 
 #contact-form input.ng-valid.ng-dirty {
-	background-color: #5cb85c;
+	background-color: #82E982;
 }

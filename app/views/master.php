@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/vendors/bootstrap.css" rel="stylesheet">
+    <link href="css/vendors/toastr.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
   </head>
   <body id="home">
@@ -43,34 +44,11 @@
 		<div ng-view></div>
 	</div>
 	
-	<!--
-    <div class="row" ng-controller="FormController">
-		<form novalidate id="contact-form" class="form-inline" role="form">
-			<div class="form-group">
-				<input type="text" ng-model="contact.first_name" class="form-control" placeholder="First name" required>
-			</div>
-
-			<div class="form-group">
-				<input type="text" ng-model="contact.last_name" class="form-control" placeholder="Last name" required>
-			</div>
-			<div class="form-group">
-				<input type="number" ng-model="contact.phone_number" class="form-control" placeholder="Phone number" required>
-			</div>
-			<div class="form-group">
-				<input type="email" ng-model="contact.email_address" class="form-control" placeholder="Email address" required>
-			</div>
-			<div class="form-group">
-				<input type="text" ng-model="contact.description" class="form-control" placeholder="Description" >
-			</div>
-			<button ng-click="save(contact)" class="btn btn-success">SAVE</button>
-			<button ng-click="reset()" class="btn btn-warning">RESET</button>
-		</form>
-    </div> <!-- form -->
-	
 	</section> <!-- container -->
     
     <script src="js/vendors/jquery.js" type="text/javascript"></script>
     <script src="js/vendors/bootstrap.js" type="text/javascript"></script>
+    <script src="js/vendors/toastr.js" type="text/javascript"></script>
     <script src="js/vendors/angular.js" type="text/javascript"></script>
     <script src="js/vendors/angular-route.js" type="text/javascript"></script>
     <script src="js/vendors/angular-resource.js" type="text/javascript"></script>

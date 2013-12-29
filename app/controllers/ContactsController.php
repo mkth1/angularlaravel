@@ -32,7 +32,28 @@ class ContactsController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+	
+		$input = Input::all();
+
+		$validation = Contact::validate( $input );
+
+		if ( $validation->passes() ) {
+			$newRec = Contact::create([
+				'first_name' => $input['first_name'],
+				'last_name' => $input['last_name'],
+				'phone_number' => $input['phone_number'],
+				'email_address' => $input['email_address'],
+				'description' => $input['description']
+			]);
+
+			if ($newRec) return ['message'=>'Successfully added record'];
+		} else {
+			//dd($validation->messages()->all());
+			$errors = $validation->messages()->all();
+			return ['errors'=>$errors];
+			//return $validation->messages();
+		}
+	
 	}
 
 	/**
@@ -76,7 +97,10 @@ class ContactsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$contact = Contact::find($id); 
+		if ( isset($contact) ) $contact->delete();
+		//if ( !($contact->delete() ) ) return ['message'=>"Something went wrong"];
+		return ['message'=>'Successfully deleted record'];
 	}
 
 }

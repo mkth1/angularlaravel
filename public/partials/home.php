@@ -1,4 +1,5 @@
-<div class="row" ng-controller="FormController">
+<div class="row" ng-controller="HomeController">
+
 	<form novalidate id="contact-form" class="form-inline" role="form">
 		<div class="form-group">
 			<input type="text" ng-model="contact.first_name" class="form-control" placeholder="First name" required>
@@ -20,9 +21,7 @@
 		<button ng-click="reset()" class="btn btn-warning">RESET</button>
 	</form>
 	<br>
-</div>
 
-<div class="row" ng-controller="HomeController">
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -43,10 +42,9 @@
 				<td>{{contact.description}}</td>
 				<td>
 					<button class="btn btn-primary">Edit</button>
-					<button class="btn btn-danger">Delete</button>
+					<button class="btn btn-danger" ng-click="delete(contact)" >Delete</button>
 				</td>
 			</tr>
 		</tbody>
-
 	</table>
 </div>
