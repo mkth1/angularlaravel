@@ -34,26 +34,42 @@ class ContactsController extends BaseController {
 	{
 	
 		$input = Input::all();
-
+		$res = [];
 		$validation = Contact::validate( $input );
 
-		if ( $validation->passes() ) {
+		try {
+			if ( $validation->passes() ) {
+				$desc = isset($input['description'])?$input['description']:"";
+				$newRec = Contact::create([
+					'first_name' => $input['first_name'],
+					'last_name' => $input['last_name'],
+					'phone_number' => $input['phone_number'],
+					'email_address' => $input['email_address'],
+					'description' => $desc
+				]);
+				if ($newRec) return $res = ['success'=>true,'message'=>'Successfully added record'];
+			} else {
+				$errors = $validation->messages()->all();
+				return $res = ['success'=>false, 'message'=>$errors];
+			}
+		} catch(Exception $e) {
+			return $res = ['success'=>'stop', 'message'=>'something went wrong'];
+		}
+		return $res;
+		/*if ( $validation->passes() ) {
 			$newRec = Contact::create([
 				'first_name' => $input['first_name'],
 				'last_name' => $input['last_name'],
 				'phone_number' => $input['phone_number'],
 				'email_address' => $input['email_address'],
-				'description' => $input['description']
+				'description' => isset($input['description'])
 			]);
-
-			if ($newRec) return ['message'=>'Successfully added record'];
+			if ($newRec) return $res = ['success'=>true,'message'=>'Successfully added record'];
 		} else {
-			//dd($validation->messages()->all());
 			$errors = $validation->messages()->all();
-			return ['errors'=>$errors];
-			//return $validation->messages();
-		}
-	
+			return $res = ['success'=>false, 'message'=>$errors];
+		}*/
+
 	}
 
 	/**
@@ -85,8 +101,30 @@ class ContactsController extends BaseController {
 	 * @return Response
 	 */
 	public function update($id)
-	{
-		//
+	{	
+
+		$contact = Contact::find($id); 
+		$input = Input::all();
+		
+		$res = [];
+		$validation = Contact::validate( $input );
+
+		try {
+			if ( $validation->passes() ) {
+				$contact->first_name = $input['first_name'];
+				$contact->last_name = $input['last_name'];
+				$contact->phone_number = $input['phone_number'];
+				$contact->email_address = $input['email_address'];
+				$contact->description = $input['description'];
+				if ($contact->save() ) return $res = ['success'=>true,'message'=>'Successfully updated contact'];
+			} else {
+				$errors = $validation->messages()->all();
+				return $res = ['success'=>false, 'message'=>$errors];
+			}
+		} catch(Exception $e) {
+			return $res = ['success'=>'stop', 'message'=>'Something went wrong'];
+		}
+		return $res;
 	}
 
 	/**
@@ -98,9 +136,15 @@ class ContactsController extends BaseController {
 	public function destroy($id)
 	{
 		$contact = Contact::find($id); 
-		if ( isset($contact) ) $contact->delete();
-		//if ( !($contact->delete() ) ) return ['message'=>"Something went wrong"];
-		return ['message'=>'Successfully deleted record'];
+		$res = [];
+
+		try{
+			if ( isset($contact) ) $contact->delete();
+			$res = ['success'=>true,'message'=>'Successfully deleted contact'];
+		} catch (Exception $e) {
+			return $res = ['success'=>'stop', 'message'=>'Something went wrong'];
+		}
+		return $res;
 	}
 
 }

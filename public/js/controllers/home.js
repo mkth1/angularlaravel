@@ -8,15 +8,21 @@ function HomeController($scope,Contacts) {
     	$scope.master = angular.copy(contact);
 		Contacts.save($scope.master,function(res){
 			console.log( "res", res );
-			if ( typeof res.errors == "undefined") {
-				toastr.info(res.message);
-				$scope.contact = null;
-				$scope.contacts.push(contact);
-
-			} else {
-				angular.forEach(res.errors, function(value, key){
-					toastr.error(value);
-				});
+			var msg = res.message;
+			switch(res.success) {
+				case true:
+					toastr.info(msg);
+					$scope.contact = null;
+					$scope.contacts.push(contact);
+				break;
+				case false:
+					angular.forEach(msg, function(value, key){
+						toastr.error(value);
+					});
+				break;
+				case 'stop':
+					toastr.error(msg);
+				break;
 			}
 		});
 	}
@@ -26,10 +32,51 @@ function HomeController($scope,Contacts) {
 		var id = contact.id;
 		contacts.splice(contacts.indexOf(contact)); 
 		Contacts.delete({'id':id},function(res){
-			toastr.info(res.message);
+			var msg = res.message;
+			switch(res.success) {
+				case true:
+					toastr.info(msg);
+				break;
+				case 'stop':
+					toastr.error(msg);
+				break;
+			}
 		});
 		
 	};
+
+	$scope.edit = function(contact) {
+		//$scope.contacts.pop(contact);
+		$scope.contact = contact;	
+		console.log( "update", contact );
+	}
+
+	$scope.update = function(contact) {
+		//$scope.contacts.pop(contact);
+		$scope.master = angular.copy(contact);
+		var id = contact.id;
+		Contacts.update($scope.master, function(res) {
+			console.log( "res", res );
+			var msg = res.message;
+			switch(res.success) {
+				case true:
+					toastr.info(msg);
+					$scope.contact = null;
+					$scope.contacts.push(contact);
+				break;
+				case false:
+					angular.forEach(msg, function(value, key){
+						toastr.error(value);
+					});
+				break;
+				case 'stop':
+					toastr.error(msg);
+				break;
+			}
+		});
+		
+		console.log( "update", contact );
+	}
 
 	$scope.reset = function() {
 		$scope.contact = angular.copy($scope.master);
