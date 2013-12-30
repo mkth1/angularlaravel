@@ -9,7 +9,7 @@
 			<input type="text" ng-model="contact.last_name" class="form-control" placeholder="Doe" required>
 		</div>
 		<div class="form-group">
-			<input type="number" ng-model="contact.phone_number" class="form-control" placeholder="0443025290" required>
+			<input type="text" ng-model="contact.phone_number" class="form-control" placeholder="0443025290" required>
 		</div>
 		<div class="form-group">
 			<input type="email" ng-model="contact.email_address" class="form-control" placeholder="john@doe.com" required>

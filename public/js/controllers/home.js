@@ -48,11 +48,11 @@ function HomeController($scope,Contacts) {
 	$scope.edit = function(contact) {
 		//$scope.contacts.pop(contact);
 		$scope.contact = contact;	
-		console.log( "update", contact );
+		
 	}
 
 	$scope.update = function(contact) {
-		//$scope.contacts.pop(contact);
+		
 		$scope.master = angular.copy(contact);
 		var id = contact.id;
 		Contacts.update($scope.master, function(res) {
@@ -74,8 +74,6 @@ function HomeController($scope,Contacts) {
 				break;
 			}
 		});
-		
-		console.log( "update", contact );
 	}
 
 	$scope.reset = function() {
