@@ -12,7 +12,13 @@ module.exports = function(grunt) {
 			target: {
 				src: "dist/main.js",
 				dest: "dist/main.min.js"
+			},
+			lib: {
+				src: "dist/lib.js",
+				dest: "dist/lib.min.js"
 			}
+
+
 		},
 		concat: {
 			options:{
@@ -22,6 +28,10 @@ module.exports = function(grunt) {
 			target: {
 				src: ["js/*.js","js/controllers/*.js"],
 				dest: "dist/main.js"
+			},
+			lib: {
+				src: ["js/vendors/*.js"],
+				dest: "dist/lib.js"
 			}
 		}
 	});
