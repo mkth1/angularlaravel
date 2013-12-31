@@ -53,12 +53,10 @@
     <script src="js/vendors/angular-route.js" type="text/javascript"></script>
     <script src="js/vendors/angular-resource.js" type="text/javascript"></script>
 	
-	<script src="dist/main.js" type="text/javascript"></script>
-	<!--
 	<script src="js/controllers/home.js" type="text/javascript"></script>
 	<script src="js/controllers/app.js" type="text/javascript"></script>
 	<script src="js/services.js" type="text/javascript"></script>
-	<script src="js/route.js" type="text/javascript"></script> !-->
+	<script src="js/route.js" type="text/javascript"></script> 
     
   </body>
 </html>
