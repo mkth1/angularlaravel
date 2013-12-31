@@ -1,10 +1,11 @@
-angular.module('contactServices', ['ngResource'])
-	.factory('Contacts', function  ($resource) {
-		return $resource('/contacts/:id',{},{
-			update: {method:'PUT',params:{id:'@id'} }
-		});
-		
+var services = angular.module('contactServices',['ngResource']);
+
+services.factory('Contacts', function  ($resource) {
+	return $resource('/contacts/:id',{},{
+		update: {method:'PUT',params:{id:'@id'} }
 	});
+	
+});
 
 /*
 var services = angular.module('ngdemo.services', ['ngResource']);
