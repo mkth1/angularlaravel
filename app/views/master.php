@@ -3,10 +3,11 @@
   <head>
     <title>Contacts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
+    <!-- Bootstrap 
     <link href="css/vendors/bootstrap.css" rel="stylesheet">
     <link href="css/vendors/toastr.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet"> -->
+    <link href="dist/app.min.css" rel="stylesheet">
   </head>
   <body id="home">
     <section class="container" ng-controller="AppController">
@@ -45,7 +46,8 @@
 	</div>
 	
 	</section> <!-- container -->
-    
+	<script src="dist/main.js" type="text/javascript"></script>
+    <!--
     <script src="js/vendors/jquery.js" type="text/javascript"></script>
     <script src="js/vendors/bootstrap.js" type="text/javascript"></script>
     <script src="js/vendors/toastr.js" type="text/javascript"></script>
@@ -57,6 +59,6 @@
 	<script src="js/controllers/app.js" type="text/javascript"></script>
 	<script src="js/services.js" type="text/javascript"></script>
 	<script src="js/route.js" type="text/javascript"></script> 
-    
+    !-->
   </body>
 </html>
