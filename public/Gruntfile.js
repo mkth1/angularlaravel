@@ -1,6 +1,9 @@
 module.exports = function(grunt) {
 
 	grunt.initConfig({
+
+		pkg: grunt.file.readJSON("package.json"),
+
 		ngmin: {
 			dist: {
 				files: [{
@@ -13,10 +16,10 @@ module.exports = function(grunt) {
 		},
 		uglify: {
 			options: {
-				//mangle: true, 
+				mangle: false, 
 				compress: true,
 				sourceMap: "dist/main.map",
-				banner: "/*Mukesh 2013*/"
+				banner: "/*! <%= pkg.name %> - <%= pkg.author %> - <%= pkg.license %> - v<%= pkg.version %> - <%= grunt.template.today(\"dd.mm.yyyy\") %> */\n"
 			},
 			// to minify the concat files
 			js: {
@@ -35,16 +38,12 @@ module.exports = function(grunt) {
 		concat: {
 			options:{
 				separator: ";", 
-				banner: "/*Mukesh 2013*/"
+				banner: "/*! <%= pkg.name %> - <%= pkg.author %> - <%= pkg.license %> - v<%= pkg.version %> - <%= grunt.template.today(\"dd.mm.yyyy\") %> */\n"
 			},
 			js: {
 				src: ['js/vendors/angular.js',"js/vendors/jquery.js","js/vendors/*.js","js/controllers/*.js","js/*.js"],
 				dest: "dist/main.js"
-			},
-			/*css: {
-				src: ['css/vendors/*.css', 'css/*.css'],
-				dest: 'dist/app.css'
-			}*/
+			}
 		},
 		php: {
 			options: {
@@ -59,7 +58,8 @@ module.exports = function(grunt) {
 			}
 		},
 		clean: {
-			target: ["dist"]
+			dir:  ["dist"],
+			files:  ["dist/main.js"]
 		}
 
 	});
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-ngmin');
 	
-	grunt.registerTask("default",['concat','uglify','cssmin']);
+	grunt.registerTask("default",['concat','uglify','cssmin','clean:files']);
 	grunt.registerTask('server', ['php']);
 	grunt.registerTask('phpwatch', ['php:watch','watch']);
 

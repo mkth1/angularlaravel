@@ -46,7 +46,7 @@
 	</div>
 	
 	</section> <!-- container -->
-	<script src="dist/main.js" type="text/javascript"></script>
+	<script src="dist/main.min.js" type="text/javascript"></script>
     <!--
     <script src="js/vendors/jquery.js" type="text/javascript"></script>
     <script src="js/vendors/bootstrap.js" type="text/javascript"></script>
