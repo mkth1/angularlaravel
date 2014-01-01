@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-ngmin');
+	grunt.loadNpmTasks('grunt-ngmin'); // this plugin not used
 	
 	grunt.registerTask("default",['concat','uglify','cssmin','clean:files']);
 	grunt.registerTask('server', ['php']);
