@@ -1,21 +1,11 @@
-## Laravel PHP Framework
+**Laravel and Angularjs application with Grunt task runner**
+This application uses angularjs as frontend and laravel as backend.The request between front-end and backend is donw with rest calls.It also uses bootstrap for css and Grunt as task runner.When this application loads in the browser it uses minified  main.js and app.css from dist folder.
 
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework)
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
-
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
-
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
-
-## Official Documentation
-
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
-
-### Contributing To Laravel
-
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+**To use this application**
+- Dowload it.
+- composer update, to update the laravel.
+- Make database config chenges in the app/config/database.php .
+- php artisan migrate to migrate the database.
+- *cd public* directory then Install the grunt dependencies with *npm install* for Grunt.
+- grunt php and open ur browser localhost:5000
+- Happy Coding :)
